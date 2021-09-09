@@ -5,6 +5,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.casaapuestasrussell.springboot.web.app.models.Usuario;
+
 @Controller
 @RequestMapping("/app")
 public class IndexController {
@@ -20,5 +22,15 @@ public class IndexController {
 		model.addAttribute("titulo", "Titulo_Spring boot");
 		//return name vista => index.html
 		return "index";
+	}
+	
+	@RequestMapping("/perfil")
+	public String perfil(Model model) {
+		Usuario usuario = new Usuario();
+		usuario.setNombre("Russell");
+		usuario.setApellido("Tito");
+		model.addAttribute("usuario", usuario);
+		model.addAttribute("titulo", "Perfil del Usuario ".concat(usuario.getNombre()));
+		return "perfil";
 	}
 }
