@@ -1,0 +1,15 @@
+package com.casaapuestasrussell.springboot.web.app.controllers;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+public class IndexController {
+	//http://localhost:8080/index
+	@RequestMapping(value ="/index" )
+	public String index() {
+		
+		//return name vista => index.html
+		return "index";
+	}
+}
