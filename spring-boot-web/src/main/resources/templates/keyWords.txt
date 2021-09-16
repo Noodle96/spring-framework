@@ -1,0 +1,17 @@
+CONTROLADOR:
+@Controler : marca como un controlador a la clase.
+@requestMapping(value={values,...}",,method=RequestMethod.GET)
+
+
+@ModelAttribute(stringNameVista) : anotacion encima de un metodo para que el objectReturn este disponible
+									en todos los metodos del controlador, utilizandolo en la vista con 
+									el stringNameVista
+									
+									
+									
+									
+THYMELEAF:
+<html xmlns:th="http://www.thymeleaf.org">
+th:text="${object}"
+th:if="${condicion}"
+th:each="${usuario: ${objectList}}"

@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -41,13 +42,33 @@ public class IndexController {
 	
 	@RequestMapping("/listar")
 	public String listar(Model model) {
-		List<Usuario> usuarios = new ArrayList<>();
-		usuarios.add(new Usuario("Jorge","Muñoz","jorge@wada.com"));
-		usuarios.add(new Usuario("elias","portocarrero","elias@wada.com"));
-		usuarios.add(new Usuario("mateo","escomel","mateo@wada.com"));
+		//List<Usuario> usuarios = new ArrayList<>();
+		//usuarios.add(new Usuario("Jorge","Muñoz","jorge@wada.com"));
+		//usuarios.add(new Usuario("elias","portocarrero","elias@wada.com"));
+		//usuarios.add(new Usuario("mateo","escomel","mateo@wada.com"));
 		
 		model.addAttribute("titulo","Lista de Usuarios");
-		model.addAttribute("usuarios", usuarios);
+	//	model.addAttribute("usuarios", usuarios);
 		return "listar";
 	}
+	
+	/*
+ 	* Anotación  @ModelAttribute(name objeto que pasara a la vista)
+ 	* Este metodo podra pasarse en todas los metodos del controlador 
+	*/
+	
+	//@ModelAttribute("stringAttributeUsuarios")
+	@ModelAttribute("usuarios")
+	public List<Usuario> poblarUsuarios(){
+		List<Usuario> objectUsuarios = new ArrayList<>();
+		objectUsuarios.add(new Usuario("Jorge","Muñoz","jorge@wada.com"));
+		objectUsuarios.add(new Usuario("elias","portocarrero","elias@wada.com"));
+		objectUsuarios.add(new Usuario("mateo","escomel","mateo@wada.com"));
+		return  objectUsuarios;
+		//entonces objectUsuario estara disponible en todos los 
+		//metodos del controlador
+	}
+	
+	
+	
 }
